@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "guarder",
+      "type": "com.mybatis.mybatis.plugin.config.MybatisPluginsConfig",
+      "description": "Description for guarder.plugins."
+    },
+    {
+      "name": "guarder.enable",
+      "type": "java.lang.Boolean",
+      "description": "Description for guarder enable."
+    }
+  ]
+}
