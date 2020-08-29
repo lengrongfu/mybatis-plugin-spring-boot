@@ -1,3 +1,8 @@
+
+[![Build Status](https://travis-ci.org/lengrongfu/mybatis-plugin-spring-boot.svg?branch=master)](https://travis-ci.org/lengrongfu/mybatis-plugin-spring-boot.svg?branch=master)
+[![codecov](https://codecov.io/gh/lengrongfu/mybatis-plugin-spring-boot/branch/master/graph/badge.svg)](https://codecov.io/gh/lengrongfu/mybatis-plugin-spring-boot)
+
+
 # 基于配置增强 SQL 组件设计概述
 
 ![思维导图](https://github.com/lengrongfu/images/blob/master/mybatis-plugin-spring-boot/页面-2.png)
