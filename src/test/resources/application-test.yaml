@@ -1,0 +1,18 @@
+guarder:
+  enable: true
+  plugins:
+    - name: dml_add_tenant_key
+      level: dml
+      value:
+        - select
+        - insert
+      rules:
+        - name: add_tenant_key
+          value: add_field
+          field-policy:
+            name: conf
+            value: tenant_key
+          field-value-policy:
+            name: threadLocal
+            value: tenant_key_value
+          field-value-fail-policy: run
