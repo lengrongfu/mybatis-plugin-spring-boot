@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-@ConfigurationProperties(prefix = "mybatis")
+@ConfigurationProperties(prefix = "guarder")
 public class MybatisPluginsConfig {
 
     private Boolean enable = false;

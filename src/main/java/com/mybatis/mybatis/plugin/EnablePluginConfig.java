@@ -39,7 +39,7 @@ import java.util.List;
 @ConditionalOnWebApplication
 @EnableConfigurationProperties(MybatisPluginsConfig.class)
 @ConditionalOnProperty(
-        prefix = "mybatis",
+        prefix = "guarder",
         name = {"enable"},
         havingValue = "true"
 )
