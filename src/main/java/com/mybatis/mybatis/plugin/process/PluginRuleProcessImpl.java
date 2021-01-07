@@ -19,6 +19,8 @@ public class PluginRuleProcessImpl implements PluginRuleProcess {
     private static Map<PluginRuleValueType, RulePolicyProcess> rulePolicyProcessMap = new HashMap<>();
 
     static {
+        //修改表名策略
+        rulePolicyProcessMap.put(PluginRuleValueType.change_tableName, new ChangeTableNamePluginRuleProcess());
         rulePolicyProcessMap.put(PluginRuleValueType.add_where_field, new AddWhereFieldPluginRuleProcess());
 
         AddInsertFieldPluginRuleProcess insertFieldPluginRuleProcess = new AddInsertFieldPluginRuleProcess();
