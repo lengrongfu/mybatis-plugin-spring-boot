@@ -1,5 +1,6 @@
 package com.mybatis.mybatis.plugin.aware;
 
+import com.mybatis.mybatis.plugin.Filtered;
 import com.mybatis.mybatis.plugin.process.PluginsProcess;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -12,6 +13,8 @@ import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
 import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
 
 /**
  * @program: mybatis plugin
@@ -41,6 +44,28 @@ public class MybatisInterceptorAware implements InterceptorAware, InterceptorAwa
                 // 几乎不可能走进这里面,除非使用Executor的代理对象调用query[args[6]]
                 boundSql = (BoundSql) args[5];
             }
+
+            //获取类
+            String namespace = statement.getId();
+            String className = namespace.substring(0,namespace.lastIndexOf("."));
+            String methedName= namespace.substring(namespace.lastIndexOf(".") + 1,namespace.length());
+            Method[] ms = new Method[0];
+            try {
+                ms = Class.forName(className).getMethods();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            Executor executor = (Executor)invocation.getTarget();
+            for(Method m : ms){
+                if(m.getName().equals(methedName)){
+                    Filtered annotation = m.getAnnotation(Filtered.class);
+                    if (annotation != null){
+                        System.out.println(annotation.toString());
+                    }
+                };
+            }
+
+
             String sql = boundSql.getSql();
 
             if (logger.isDebugEnabled()) {

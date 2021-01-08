@@ -46,4 +46,11 @@ public enum PluginRuleValueType {
      * @Date: 2020/8/29 2:12 下午
      */
     delete_field,
+    /**
+     * @Description: 修改表名
+     * @return:
+     * @Creator: 何胜
+     * @Date: 2021/1/7 18:17 下午
+     */
+    change_tableName,
 }
